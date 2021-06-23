@@ -15,26 +15,4 @@ steps:
       from_secret: p_docker
     repo: mansong/drone-python-starter
     auto_tag: true
-- name: harness-deploy
-  image: luisredda/drone-simple-plugin
-  settings:
-    action: deploy
-    project: myproject
-    runtime: go111
-    functions:
-      - Function1:
-        - trigger: http
-          memory: 2048MB
-          allow_unauthenticated: true
-          environment:
-            - ENV_VAR: env_var_value_123
-      - Function2:
-        - trigger: topic
-          trigger_resource: "projects/myproject/topics/mytopic"
-          memory: 512MB
-      - Function3:
-        - trigger: http
-          memory: 512MB
-          runtime: python37
-          source: ./python/src/functions/
 
