@@ -2,11 +2,13 @@ kind: pipeline
 name: default
 
 steps:
-- name: build
+
+- name: Build
   image: python
   commands:
   - pip install -r requirements.txt
-- name: publish
+
+- name: Publish
   image: plugins/docker
   settings:
     username:
@@ -15,7 +17,8 @@ steps:
       from_secret: p_docker
     repo: mansong/drone-python-starter
     auto_tag: true
-- name: my custom plugin
+
+- name: Custom Plugin
   image: luisredda/drone-simple-plugin
   settings:
     action: deploy
