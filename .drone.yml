@@ -3,12 +3,12 @@ name: default
 
 steps:
 
-- name: Build
+- name: build
   image: python
   commands:
   - pip install -r requirements.txt
 
-- name: Publish
+- name: publish
   image: plugins/docker
   settings:
     username:
@@ -18,7 +18,7 @@ steps:
     repo: mansong/drone-python-starter
     auto_tag: true
 
-- name: Custom Plugin
+- name: custom plugin
   image: luisredda/drone-simple-plugin
   settings:
     action: deploy
